@@ -53,6 +53,13 @@
     <img class="logo__nuit" src="assets/img/logo-roc-ecrins-nuit.svg" width="135" height="30" alt="" aria-hidden="true">
     <span class="logo__signature" aria-hidden="true">Séjours montagne</span>
   </a>
+  <div class="altimetre" aria-hidden="true" data-altimetre>
+    <div class="altimetre__ecran">
+      <span class="altimetre__chiffres" data-alt-chiffres></span><span class="altimetre__unite">m</span>
+      <span class="altimetre__hors">hors carte</span>
+    </div>
+    <div class="altimetre__plaque" data-plaque><span data-plaque-nom>L’Argentière-la-Bessée</span></div>
+  </div>
   <nav class="entete__nav" aria-label="Raccourcis">
     <div class="saison" role="group" aria-label="Saison">
       <button type="button" class="saison__btn" data-saison-btn="ete" aria-pressed="true">Été</button>
@@ -98,13 +105,6 @@
 <div class="nuit" aria-hidden="true" data-nuit></div>
 <div class="neige" aria-hidden="true" data-neige><span class="neige__mot" data-neige-mot>Hiver</span></div>
 
-<aside class="altimetre" aria-hidden="true" data-altimetre>
-  <div class="altimetre__ecran">
-    <span class="altimetre__chiffres" data-alt-chiffres></span><span class="altimetre__unite">m</span>
-    <span class="altimetre__hors">hors carte</span>
-  </div>
-  <div class="altimetre__plaque" data-plaque><span data-plaque-nom>L’Argentière-la-Bessée</span></div>
-</aside>
 
 <main id="contenu">
 
@@ -274,17 +274,9 @@
     <div class="trouve__tete">
       <h2 id="h-trouve" class="titre titre--2" data-titre><span class="ligne"><span>Alors,</span></span><span class="ligne"><span>on part où&nbsp;?</span></span></h2>
     </div>
-    <form class="trouve__phrase" data-trouve aria-describedby="trouve-aide">
-      <p id="trouve-aide" class="visuellement-cache">Trois choix, les séjours correspondants s’affichent en dessous.</p>
-      <span class="choix" role="radiogroup" aria-labelledby="choix-saison"><span class="choix__lead" id="choix-saison">Cet</span>
-        <label><input type="radio" name="saison" value="ete" checked><span>été</span></label><span class="choix__sep">/</span><label><input type="radio" name="saison" value="hiver"><span>hiver</span></label><span class="choix__ponct">,</span>
-      </span>
-      <span class="choix" role="radiogroup" aria-labelledby="choix-niveau"><span class="choix__lead" id="choix-niveau">niveau</span>
-        <label><input type="radio" name="niveau" value="1" checked><span>Évolution</span></label><span class="choix__sep">/</span><label><input type="radio" name="niveau" value="2"><span>Confirmé</span></label><span class="choix__sep">/</span><label><input type="radio" name="niveau" value="3"><span>Expert</span></label><span class="choix__ponct">,</span>
-      </span>
-      <span class="choix" role="radiogroup" aria-labelledby="choix-envie"><span class="choix__lead" id="choix-envie">j’ai envie de</span>
-        <label><input type="radio" name="envie" value="sommet" checked><span>faire un sommet</span></label><span class="choix__sep">/</span><label><input type="radio" name="envie" value="grimper"><span>grimper</span></label><span class="choix__sep">/</span><label data-envie-hiver><input type="radio" name="envie" value="glisser"><span>glisser</span></label><span class="choix__sep" data-envie-hiver>/</span><label><input type="radio" name="envie" value="marcher"><span>marcher</span></label><span class="choix__sep">/</span><label><input type="radio" name="envie" value="dehors"><span>dormir dehors</span></label><span class="choix__ponct">.</span>
-      </span>
+    <form class="trouve__phrase" data-trouve>
+      <p class="trouve__consigne">Change les mots en rouge, les séjours suivent.</p>
+      <p class="trouve__texte">Cet <label class="pastille"><span class="visuellement-cache">Saison</span><select name="saison"><option value="ete">été</option><option value="hiver">hiver</option></select></label>, niveau <label class="pastille"><span class="visuellement-cache">Niveau</span><select name="niveau"><option value="1">Évolution</option><option value="2">Confirmé</option><option value="3">Expert</option></select></label>, j’ai envie de <label class="pastille"><span class="visuellement-cache">Envie</span><select name="envie"><option value="sommet">faire un sommet</option><option value="grimper">grimper</option><option value="glisser">glisser</option><option value="marcher">marcher</option><option value="dehors">dormir dehors</option></select></label>.</p>
     </form>
     <div class="trouve__resultats" aria-live="polite" data-resultats>
       <p class="trouve__vide">Les séjours s’affichent ici.</p>
@@ -311,11 +303,17 @@
   </div>
   <figure class="horscarte__photo" data-roche>
     <!--img:tadrart|100vw|cadre|lazy-->
-    <a class="visa visa--1" href="https://www.roc-ecrins.com/sortie/rendez-vous-a-essendilene-algerie-randonnee-chameliere-dans-le-pre-tassili-sejour-11727.html"><div class="tampon tampon--visa" style="--r:-9deg" data-tampon><svg viewBox="0 0 200 120" role="img" aria-label="Tampon : Tadrart, Algérie"><g mask="url(#encre-a)" filter="url(#bave)"><use href="#o-contour" transform="translate(100 60) rotate(90) scale(5.35) translate(-36.2 -22.4)" class="tampon__bord"/><use href="#o-contour" transform="translate(100 60) rotate(90) scale(4.7) translate(-36.2 -22.4)" class="tampon__filet"/><text x="100" y="60" class="tampon__l1">TADRART</text><text x="100" y="84" class="tampon__l2">ALGÉRIE</text></g></svg></div><span class="visuellement-cache">Randonnée chamelière en Algérie</span></a>
-    <a class="visa visa--2" href="https://www.roc-ecrins.com/sortie/randonnee-chameliere-en-mauritanie-218.html"><div class="tampon tampon--visa" style="--r:6deg" data-tampon><svg viewBox="0 0 200 120" role="img" aria-label="Tampon : Mauritanie"><g mask="url(#encre-b)" filter="url(#bave)"><use href="#o-contour" transform="translate(100 60) rotate(90) scale(5.35) translate(-36.2 -22.4)" class="tampon__bord"/><use href="#o-contour" transform="translate(100 60) rotate(90) scale(4.7) translate(-36.2 -22.4)" class="tampon__filet"/><text x="100" y="60" class="tampon__l1">MAURITANIE</text><text x="100" y="84" class="tampon__l2">DÉSERT</text></g></svg></div><span class="visuellement-cache">Treck en Mauritanie</span></a>
-    <div class="invite invite--dromadaire" data-invite="dromadaire" aria-hidden="true"><!--img:dromadaire|(min-width: 900px) 34vw, 70vw|invite__img|lazy|--></div>
-    <div class="note note--creme horscarte__note" data-note-invite="dromadaire"><span class="note__texte">il a vu ton sac. pas impressionné.</span></div>
   </figure>
+  <div class="grille horscarte__billets">
+    <a class="billet" href="https://www.roc-ecrins.com/sortie/rendez-vous-a-essendilene-algerie-randonnee-chameliere-dans-le-pre-tassili-sejour-11727.html">
+      <span class="billet__visa"><div class="tampon" style="--r:-8deg" data-tampon><svg viewBox="0 0 200 120" role="img" aria-label="Tampon : Tadrart, Algérie"><g mask="url(#encre-a)" filter="url(#bave)"><use href="#o-contour" transform="translate(100 60) rotate(90) scale(5.35) translate(-36.2 -22.4)" class="tampon__bord"/><use href="#o-contour" transform="translate(100 60) rotate(90) scale(4.7) translate(-36.2 -22.4)" class="tampon__filet"/><text x="100" y="60" class="tampon__l1">TADRART</text><text x="100" y="84" class="tampon__l2">ALGÉRIE</text></g></svg></div></span>
+      <span class="billet__texte"><span class="billet__titre">Randonnée dans le désert algérien</span><span class="billet__meta">7 jours · dès 700&nbsp;€</span><span class="billet__action">Voir le séjour</span></span>
+    </a>
+    <a class="billet" href="https://www.roc-ecrins.com/sortie/randonnee-chameliere-en-mauritanie-218.html">
+      <span class="billet__visa"><div class="tampon" style="--r:6deg" data-tampon><svg viewBox="0 0 200 120" role="img" aria-label="Tampon : Mauritanie"><g mask="url(#encre-b)" filter="url(#bave)"><use href="#o-contour" transform="translate(100 60) rotate(90) scale(5.35) translate(-36.2 -22.4)" class="tampon__bord"/><use href="#o-contour" transform="translate(100 60) rotate(90) scale(4.7) translate(-36.2 -22.4)" class="tampon__filet"/><text x="100" y="60" class="tampon__l1">MAURITANIE</text><text x="100" y="84" class="tampon__l2">DÉSERT</text></g></svg></div></span>
+      <span class="billet__texte"><span class="billet__titre">Treck en Mauritanie</span><span class="billet__meta">8 jours · dès 1&#8239;490&nbsp;€</span><span class="billet__action">Voir le séjour</span></span>
+    </a>
+  </div>
 </section>
 
 <!-- ═════════ 6 · LA NUIT SUSPENDUE ═════════ -->
@@ -356,19 +354,31 @@
 </section>
 
 <!-- ═════════ 8 · RÉVEIL 4 H ═════════ -->
-<section class="reveil nocturne" id="reveil" data-alt="3450,4015" data-plaque-fin="Dôme des Écrins|4015" aria-labelledby="h-reveil">
+<section class="reveil nocturne" id="reveil" data-alt="3450,4015" aria-labelledby="h-reveil">
   <div class="grille reveil__grille">
     <div class="reveil__texte">
       <h2 id="h-reveil" class="titre titre--2 titre--creme" data-titre><span class="ligne"><span>Réveil&nbsp;:</span></span><span class="ligne"><span>4 h.</span></span></h2>
-      <p class="chapo">Oui, c’est tôt. Mais regarde la suite.</p>
+      <p class="chapo">Départ du refuge à la frontale, avant le jour. Oui, c’est tôt. Mais regarde la suite.</p>
     </div>
-    <svg class="frontales" viewBox="0 0 600 900" aria-hidden="true" data-frontales>
-      <path class="frontales__sentier" d="M120 880C220 840 420 820 470 760 520 700 260 690 200 620 140 550 430 540 470 470 510 400 240 400 210 330 180 260 400 250 420 190 440 130 330 80 300 30"/>
-    </svg>
-    <div class="note note--creme reveil__thermos" data-note-thermos><span class="note__texte">lui, il a oublié le thermos</span></div>
-    <figure class="reveil__dome" data-dome>
-      <!--img:dome|(min-width: 900px) 24vw, 60vw|cadre|lazy-->
-      <figcaption class="note note--creme"><span class="note__texte">plus que 87 m</span></figcaption>
+    <figure class="topo" data-topo>
+      <svg class="topo__svg" viewBox="0 0 640 520" role="img" aria-label="Topo : du refuge, une cordée de frontales monte vers le Dôme des Écrins, 4 015 mètres ; la Barre des Écrins, 4 102 mètres, est juste à côté, 87 mètres plus haut.">
+        <defs><linearGradient id="topo-fondu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F0EB" stop-opacity=".08"/><stop offset="1" stop-color="#F3F0EB" stop-opacity="0"/></linearGradient></defs>
+        <path class="topo__relief" d="M0 456 C60 446 120 420 170 386 C230 346 280 300 320 250 C350 210 375 170 398 132 C410 112 420 100 432 96 C446 92 458 98 470 108 L492 92 L512 70 L530 54 L544 62 L556 56 L578 92 C596 120 616 150 640 168 L640 520 L0 520 Z"/>
+        <path class="topo__crete" d="M0 456 C60 446 120 420 170 386 C230 346 280 300 320 250 C350 210 375 170 398 132 C410 112 420 100 432 96 C446 92 458 98 470 108 L492 92 L512 70 L530 54 L544 62 L556 56 L578 92 C596 120 616 150 640 168"/>
+        <path class="topo__voie" d="M112 444 C170 438 240 436 280 422 C320 408 288 384 300 364 C312 342 366 346 382 322 C396 298 354 284 362 262 C370 240 410 238 416 212 C422 186 402 172 410 150 C416 132 426 112 432 97"/>
+        <g class="topo__refuge" transform="translate(96 450)"><path d="M-15 0V-13L0-24L15-13V0Z"/><path d="M-4 0V-7H4V0"/></g>
+        <text class="topo__mot" x="96" y="482">refuge</text>
+        <circle class="topo__point" cx="432" cy="95" r="4.5"/>
+        <path class="topo__croix" d="M524 48l12 12M536 48l-12 12"/>
+        <text class="topo__nom" x="420" y="62" text-anchor="end">Dôme des Écrins</text>
+        <text class="topo__alt" x="420" y="80" text-anchor="end">4 015 m</text>
+        <text class="topo__nom" x="530" y="18" text-anchor="middle">Barre des Écrins</text>
+        <text class="topo__alt" x="530" y="36" text-anchor="middle">4 102 m</text>
+        <path class="topo__fleche" d="M442 88C466 68 492 58 516 58"/>
+        <path class="topo__fleche topo__fleche--pointe" d="M507 50l10 8-11 6"/>
+      </svg>
+      <div class="note note--creme topo__note topo__note--87" data-topo-note><span class="note__texte">plus que 87 m</span></div>
+      <div class="note note--creme topo__note topo__note--thermos" data-topo-note><span class="note__texte">lui, il a oublié le thermos</span></div>
     </figure>
   </div>
 </section>

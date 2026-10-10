@@ -394,29 +394,6 @@
    ]
   ]
  },
- "dome": {
-  "w": 2764,
-  "h": 1404,
-  "ratio": 1.9687,
-  "files": [
-   [
-    "dome-480.avif",
-    12
-   ],
-   [
-    "dome-480.webp",
-    24
-   ],
-   [
-    "dome-960.avif",
-    46
-   ],
-   [
-    "dome-960.webp",
-    82
-   ]
-  ]
- },
  "husky": {
   "w": 1698,
   "h": 632,
@@ -460,29 +437,6 @@
    [
     "bouquetin-960.webp",
     70
-   ]
-  ]
- },
- "dromadaire": {
-  "w": 2640,
-  "h": 1772,
-  "ratio": 1.4898,
-  "files": [
-   [
-    "dromadaire-640.avif",
-    31
-   ],
-   [
-    "dromadaire-640.webp",
-    41
-   ],
-   [
-    "dromadaire-1280.avif",
-    107
-   ],
-   [
-    "dromadaire-1280.webp",
-    144
    ]
   ]
  },

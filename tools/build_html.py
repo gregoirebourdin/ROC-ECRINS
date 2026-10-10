@@ -47,7 +47,7 @@ def fr_range(a, b):
         return f"{a.day}", MOIS[a.month - 1]
     if a.month == b.month:
         return f"{a.day}–{b.day}", MOIS[a.month - 1]
-    return f"{a.day} {MOIS[a.month - 1]} – {b.day}", MOIS[b.month - 1]
+    return f"{a.day}–{b.day}", f"{MOIS[a.month - 1]}–{MOIS[b.month - 1]}"
 
 
 LEVEL = {"Évolution": "Évolution", "Confirmé": "Confirmé", "Expert": "Expert"}

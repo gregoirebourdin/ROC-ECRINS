@@ -24,13 +24,13 @@ Livrables dans l'ordre demandé : note de direction artistique, sélection des p
 - **Rouge brique** : réservé à ce qui agit ou valide (boutons, trace au feutre, tampons, prix).
 
 **Trois signatures, propres à Roc Écrins.**
-1. **La trace et l'altimètre.** Un itinéraire au feutre relie les moments, et l'altimètre monte de la vallée jusqu'aux plaques réelles du Refuge de la Selle, du Dôme et de la Barre. C'est leur terrain, littéralement.
+1. **La trace et l'altimètre.** Un itinéraire au feutre relie les moments. L'altimètre, logé dans l'en-tête pour ne jamais masquer le contenu, monte de la vallée jusqu'aux plaques réelles du Refuge de la Selle, du Dôme et de la Barre. C'est leur terrain, littéralement.
 2. **Le passeport.** Le « O » rocher du logo devient le tampon, et ses mouchetures servent d'imperfection d'encre. Les voyages lointains reçoivent des visas.
-3. **La nuit suspendue.** Le portaledge se balance au rythme du défilement, la nuit tombe sur la page, puis une cordée de frontales monte vers l'aube.
+3. **La nuit suspendue.** Le portaledge se balance au rythme du défilement et la nuit tombe sur la page. Ensuite, sur un topo dessiné, une cordée de frontales monte du refuge vers le Dôme.
 
 ---
 
-## 2. Sélection des photos (18)
+## 2. Sélection des photos (16)
 
 Toutes les photos viennent des pages du site actuel, dans l'entrée la plus large de chaque tableau `img`. Elles reçoivent toutes le même étalonnage (`tools/grade.py`) :
 - ombres relevées et teintées brun, jamais de noir pur ;
@@ -52,14 +52,13 @@ Toutes les photos viennent des pages du site actuel, dans l'entrée la plus larg
 | 10 | Attelage vu du traîneau (`sortie/raquettes-ski-de-fond-chien-de-traineau-a-nevache`) | Planche chiens de traîneau | |
 | 11 | Husky pattes en l'air (`sortie/sejour-multi-activites-hivernales-…-12990`) | Invité surprise de l'hiver | Détouré avec BiRefNet. |
 | 12 | Bouquetin couché (`sortie/journee-d-escalade-grandes-voies-pays-des-ecrins`) | Invité surprise de l'été | Détouré, tête et cornes seulement. |
-| 13 | Dromadaire en gros plan (`sortie/rendez-vous-a-essendilene-…-11727`) | Invité surprise de « Hors carte » | Détouré. |
 | 14 | Aiguilles de grès de la Tadrart (`sortie/nouveau-produit-11785`) | « Hors carte » | |
 | 15 | Portaledge et duvet vert (`sortie/nuit-insolite-en-portaledge`) | La nuit suspendue | La photo la plus folle du site. |
 | 16 | Marmite sur le feu (`sortie/sejour-insolite-en-bivouac-sur-mesure`) | Autour du feu | |
 | 17 | Silhouette au lever du soleil, Meije orientale (`sortie/meije-orientale-et-doigt-de-dieu-58`) | L'aube et le sommet | |
-| 18 | Panneau « Dôme des Écrins, alt. 4 015 » (`sortie/ski-alpinisme-pente-raide-…-15522`) | Clin d'œil « plus que 87 m » | |
 
 **Retirées, et pourquoi :**
+- **Dromadaire et panneau du Dôme**, après tes retours : la blague du dromadaire ne passait pas, et le panneau est remplacé par le topo dessiné, plus clair.
 - **Second portaledge, dunes de Mauritanie, gerbe de poudreuse, plaque du Refuge de la Selle** : pour tenir 18 images. La Selle reste sous forme de plaque sur l'altimètre.
 - **Mélèzes du Champsaur** : le nom du fichier porte « o__bonnemaison », donc un photographe extérieur, comme pour le parapente.
 - **Lacs de la Clarée** : moins de 1 900 px, et la scène est moins forte.
@@ -84,11 +83,11 @@ L'ouverture est préchargée. Le reste se charge en différé, et la saison masq
 | **Tout est dans le sac** · → 1 700 m | « départ : 6 rue du Chlorate ». Liste tout compris, cochée au feutre. Niveaux, tarif syndical, Atout France. | La trace part de l'adresse. Photo révélée par une découpe de rocher. Coches tracées une à une. | La trace file vers la passerelle. |
 | **La traversée** · → 2 673 m | « Choisis ta saison. » Interrupteur Été / Hiver. 4 planches + « Et aussi ». | Épinglée, défilement horizontal. La passerelle se creuse et ondule selon la vitesse. Chaque planche reçoit son tampon au centre. Le bouquetin passe la tête (été), le husky roule dans le cadre (hiver). | Plaque « Refuge de la Selle · 2 673 m ». |
 | *Bascule de saison* | | La neige recouvre la page (une vraie nappe avec un bord de congère, « HIVER » tamponné dessus), tout change dessous, puis elle glisse. En été, c'est la terre sable qui remonte. | |
-| **Alors, on part où ?** · → 3 000 m | Une phrase à trois choix : saison, niveau, envie. 3 séjours avec leurs prochaines dates. Puis les 6 prochains départs. | Le choix est entouré au feutre. Les résultats arrivent en cascade. « plus que 2 places » écrit à la main. | La trace sort du cadre : « petit détour ». |
-| **Hors carte** | Algérie, Mauritanie, Verdon, Calanques. | Photo découpée. Deux visas tombent. Le dromadaire monte et regarde : « il a vu ton sac. pas impressionné. » L'altimètre affiche « hors carte ». | |
-| **Une nuit dans le vide** · → 3 200 m | 2 jours, 1 à 2 pers., dès 230 €, bouton « Réserver ma nuit suspendue ». Note « somnambules, s'abstenir ». | Épinglée. La photo se balance (ressort lié à la vitesse, plus un pendule lent). Le crépuscule descend, puis la nuit tombe sur toute la page. | La page reste brun nuit. |
+| **Alors, on part où ?** · → 3 000 m | Une phrase à trois trous : « Cet [été], niveau [Évolution], j'ai envie de [faire un sommet]. » Chaque trou est une pastille déroulante (liste native sur mobile). Le nombre de séjours trouvés, les 3 prochains, puis les 6 prochains départs. | La pastille rebondit au choix. Les résultats arrivent en cascade. « plus que 2 places » écrit à la main. | La trace sort du cadre : « petit détour ». |
+| **Hors carte** | Algérie, Mauritanie, Verdon, Calanques. | Photo découpée, puis deux billets de voyage cliquables : tampon-visa, durée, prix « dès », « Voir le séjour → ». L'altimètre affiche « hors carte ». | |
+| **Une nuit dans le vide** · → 3 200 m | 2 jours, 1 à 2 pers., dès 230 €, bouton « Réserver ma nuit suspendue ». Note « somnambules, s'abstenir ». | Épinglée sur un court passage (70 % d'écran). Le titre et l'offre arrivent dès l'entrée. La photo se balance au rythme du défilement, le crépuscule descend, la nuit tombe sur la page. | La page reste brun nuit. |
 | **Frédo, pour les copains** · → 3 450 m | Frédo et Emilie, 2013. « Pas forcément plus haut ou plus loin, mais mieux. » L'équipe. | Trace en pointillés crème. Marmite révélée. Note « dîner servi à la frontale ». | |
-| **Réveil : 4 h** · → 4 015 m | « Oui, c'est tôt. Mais regarde la suite. » | Scène collante. 24 frontales s'allument en zigzag. Une redescend : « lui, il a oublié le thermos ». Le panneau du Dôme arrive : « plus que 87 m ». | Le jour se lève : la nuit quitte la page. |
+| **Réveil : 4 h** · → 4 015 m | « Départ du refuge à la frontale, avant le jour. » Un topo dessiné : refuge, voie, Dôme des Écrins (4 015 m), Barre des Écrins (4 102 m). | Sur un seul écran. À l'arrivée, la voie se trace, 16 frontales s'allument du refuge au Dôme, une redescend (« lui, il a oublié le thermos »), puis une flèche file du Dôme à la Barre : « plus que 87 m ». | Le jour se lève : la nuit quitte la page. |
 | **Sommet** · 4 102 m | Silhouette à l'aube. « Et toi, c'est pour quand ? » Boutons, téléphone, bon cadeau (« pour celui qui a déjà tout, sauf un sommet »). | La trace finit par une croix, et le tampon « 4 102 M VALIDÉ ! » s'abat à côté. Le billet du bon cadeau se détache au survol. | Pied de page brun, l'altimètre s'efface. |
 
 Le téléphone (`tel:+33484131408`) reste visible en permanence dans l'en-tête. Depuis n'importe quel écran, il faut au plus deux clics pour voir les prochains départs, trouver un séjour à son niveau, appeler ou offrir un bon cadeau.
@@ -108,7 +107,7 @@ Le téléphone (`tel:+33484131408`) reste visible en permanence dans l'en-tête.
 
 **Notes.**
 - **Design : 8/10.** Une direction nette (papier, feutre, tampon, nuit) portée par de vraies photos. Adventure donne de la chaleur, mais un jury pourrait le trouver un peu « jovial » pour du Mont Blanc.
-- **Ergonomie : 8/10.** Le téléphone est toujours là, le module de recherche tient en un geste et les départs en deux clics. En revanche, la page est longue (≈ 16 600 px sur ordinateur, à cause des trois scènes épinglées), et une section horizontale déroute toujours un peu.
+- **Ergonomie : 8/10.** Le téléphone est toujours là, les choix du module sont de vraies listes déroulantes, et les départs sont à deux clics. La page a été raccourcie (≈ 14 250 px sur ordinateur, contre 16 600 au départ). Une section horizontale déroute toujours un peu.
 - **Créativité : 9/10.** Altimètre, trace, tampons, nuit et frontales, neige-matière et invités : chaque idée vient du métier de Roc Écrins, aucune n'est un effet générique.
 - **Contenu : 8,5/10.** Les faits d'abord (4 102 m, 230 €, tout compris, Atout France, tarif syndical) et l'humour en annotation. 400 mots visibles par saison, tampons compris.
 
@@ -142,14 +141,23 @@ En local, le LCP est de 0,43 s et le CLS de 0,005. **Pas mesuré** : le LCP en 4
 
 **Les quatre questions.**
 - **Envie de réserver en 30 secondes ?** Oui. Le premier bouton mène au module, qui sort trois vrais départs datés et chiffrés. Le portaledge, lui, se réserve sur demande.
-- **Souri au moins deux fois ?** Oui : les mails sous les nuages, le husky, le dromadaire, le thermos, « plus que 87 m ».
+- **Souri au moins deux fois ?** Oui : les mails sous les nuages, le husky, le bouquetin, le thermos, « plus que 87 m ».
 - **Reconnaît-on Roc Écrins sans le logo ?** Oui : le rocher-tampon, le brique et le brun, la rue du Chlorate, le Fournel, la Barre, Frédo.
 - **Site of the Day ?** Candidat sérieux. Pour l'assurer, il faudrait :
   - une carte-topo dessinée de la voie normale de la Barre en fil rouge ;
   - un plan vidéo court (une cordée de frontales réelle) ;
   - un passage sur un vrai mobile milieu de gamme pour régler les amplitudes.
 
-**Corrigé avant de rendre**, suite à cette relecture :
+**Deuxième passe, après tes retours et un audit de défilement réel sur 8 tailles d'écran** (1920 → 360 px, à l'aller et au retour) :
+- l'altimètre recouvrait boutons, dates et interrupteur : il est passé dans l'en-tête ;
+- des tirets blancs apparaissaient sous les titres avant leur animation ;
+- le titre d'ouverture filait sous l'en-tête, et les nuages étaient trop zoomés ;
+- la plaque de refuge réapparaissait en redescendant ;
+- l'en-tête perdait son fond en bas de page ;
+- notes mal placées sur tablette ;
+- module, Hors carte, Nuit suspendue et Réveil retravaillés selon tes demandes.
+
+**Corrigé avant de rendre**, suite à la première relecture :
 - l'accent de « LÀ » rogné ;
 - la scène « Réveil » qui ne collait pas ;
 - la nappe de neige hors écran ;

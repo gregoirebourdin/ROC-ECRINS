@@ -14,6 +14,8 @@ if (!gsap || !ScrollTrigger) {
 
 function init() {
   gsap.registerPlugin(ScrollTrigger);
+  // iPhone : la barre d'adresse qui se replie ne doit pas recalculer (et faire sauter) les scènes.
+  ScrollTrigger.config({ ignoreMobileResize: true });
   const calme = html.classList.contains('calme');
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
@@ -180,7 +182,7 @@ function init() {
   }
   if (!calme) {
     $$('[data-tampon]').forEach((t) => {
-      if (t.closest('[data-planche]') || t.closest('.sommet__aube') || t.closest('.visa')) return;
+      if (t.closest('[data-planche]') || t.closest('.sommet__aube')) return;
       ScrollTrigger.create({ trigger: t, start: 'top 70%', once: true, onEnter: () => poser(t) });
     });
   }
@@ -190,7 +192,7 @@ function init() {
   const zoneChiffres = $('[data-alt-chiffres]');
   const plaque = $('[data-plaque]');
   const plaqueNom = $('[data-plaque-nom]');
-  // Affichage façon montre d'altimètre : chiffres à chasse fixe ; le chiffre qui change saute un peu.
+  // Affichage façon montre d'altimètre : chiffres à chasse fixe.
   const cases = [];
   [0, 1, 2, 3].forEach((i) => {
     if (i === 1) { const e = document.createElement('span'); e.className = 'espace'; zoneChiffres.appendChild(e); }
@@ -206,7 +208,6 @@ function init() {
     [...txt].forEach((ch, i) => {
       if (ch === affiche[i]) return;
       cases[i].textContent = ch.trim();
-      if (!calme && i < 2 && affiche) gsap.fromTo(cases[i], { yPercent: -35, opacity: 0.2 }, { yPercent: 0, opacity: 1, duration: 0.35, ease: 'power3.out' });
     });
     affiche = txt;
   }
@@ -221,9 +222,12 @@ function init() {
     let j = 0;
     JALONS.forEach(([a], i) => { if (v >= a - 0.5) j = i; });
     if (j === jalonActuel) return;
+    const monte = j > jalonActuel;
     jalonActuel = j;
     plaqueNom.textContent = JALONS[j][1];
     if (calme) return;
+    // la plaque ne se montre qu'à la montée, quand on franchit vraiment le jalon
+    if (!monte) { gsap.killTweensOf(plaque); gsap.to(plaque, { opacity: 0, duration: 0.3 }); return; }
     gsap.killTweensOf(plaque);
     gsap.timeline()
       .fromTo(plaque, { rotation: -14, y: -10, opacity: 0 }, { rotation: 0, y: 0, opacity: 1, duration: 1.1, ease: 'elastic.out(1, 0.45)' })
@@ -263,7 +267,7 @@ function init() {
   $$('[data-saison-btn]').forEach((b) => b.addEventListener('click', () => changerSaison(b.dataset.saisonBtn)));
   // Les photos de l'autre saison ne sont chargées que lorsqu'on s'approche de l'interrupteur.
   const prechargerSaison = () => $$('[data-saison-face] img[loading="lazy"]').forEach((i) => { i.loading = 'eager'; });
-  $$('[data-saison-btn], .choix input[name="saison"] + span').forEach((b) => {
+  $$('[data-saison-btn], select[name="saison"]').forEach((b) => {
     b.addEventListener('pointerenter', prechargerSaison, { once: true });
     b.addEventListener('focus', prechargerSaison, { once: true });
   });
@@ -292,10 +296,6 @@ function init() {
     } else if (nom === 'husky') {
       tl.fromTo(el, { opacity: 1, xPercent: 140, rotation: 400 }, { xPercent: 0, rotation: 0, duration: 1.5, ease: 'back.out(1.3)' })
         .to(note, { opacity: 1, duration: 0.2 }, '-=0.4').add(() => ecrire(note), '<');
-    } else if (nom === 'dromadaire') {
-      tl.fromTo(el, { y: 0, yPercent: 70 }, { yPercent: 6, duration: 1.4, ease: 'back.out(1.25)' })
-        .to(el, { rotation: -2, transformOrigin: '70% 100%', duration: 0.5, ease: 'power2.out' }, '-=0.3')
-        .to(note, { opacity: 1, duration: 0.2 }, '-=0.1').add(() => ecrire(note), '<');
     }
   }
 
@@ -319,16 +319,18 @@ function init() {
         // La caméra avance dans le paysage : plus un plan est proche, plus il grandit et s'échappe.
         $$('[data-plan]', scene).forEach((plan) => {
           const v = parseFloat(plan.dataset.plan);
-          tl.to(plan, { scale: 1 + v * 1.05, yPercent: v * 34, transformOrigin: '50% 30%', ease: 'none' }, 0);
+          tl.to(plan, { scale: 1 + v * 0.8, yPercent: v * 30, transformOrigin: '50% 30%', ease: 'none', duration: 1 }, 0);
         });
-        tl.to(titreOuv, { yPercent: -55, scale: 0.92, ease: 'none' }, 0)
+        tl.to(titreOuv, { yPercent: -22, scale: 0.94, ease: 'none', duration: 1 }, 0)
+          .to(titreOuv, { opacity: 0, ease: 'none', duration: 0.4 }, 0.6)
           .to('.ouverture__note, .ouverture__bas', { opacity: 0, y: -30, ease: 'none', duration: 0.35 }, 0);
     });
     mmOuv.add('(max-aspect-ratio: 1/1)', () => {
         const tl = gsap.timeline({ scrollTrigger: { trigger: ouverture, pin: true, start: 'top top', end: '+=70%', scrub: 0.6 } });
-        tl.to('.scene__img--mbg', { scale: 1.12, transformOrigin: '50% 30%', ease: 'none' }, 0)
-          .to('.scene__img--mfg', { scale: 1.45, yPercent: 26, transformOrigin: '50% 0%', ease: 'none' }, 0)
-          .to(titreOuv, { yPercent: -40, ease: 'none' }, 0)
+        tl.to('.scene__img--mbg', { scale: 1.12, transformOrigin: '50% 30%', ease: 'none', duration: 1 }, 0)
+          .to('.scene__img--mfg', { scale: 1.45, yPercent: 26, transformOrigin: '50% 0%', ease: 'none', duration: 1 }, 0)
+          .to(titreOuv, { yPercent: -12, ease: 'none', duration: 1 }, 0)
+          .to(titreOuv, { opacity: 0, ease: 'none', duration: 0.4 }, 0.6)
           .to('.ouverture__note, .ouverture__bas', { opacity: 0, ease: 'none', duration: 0.3 }, 0);
     });
   }
@@ -425,7 +427,7 @@ function init() {
     const a = new Date(n[0] + 'T12:00'), b = new Date(n[1] + 'T12:00');
     if (n[0] === n[1]) return [`${a.getDate()}`, `${MOIS[a.getMonth()]} ${a.getFullYear() !== 2026 ? a.getFullYear() : ''}`.trim()];
     if (a.getMonth() === b.getMonth()) return [`${a.getDate()}–${b.getDate()}`, `${MOIS[a.getMonth()]} ${a.getFullYear() !== 2026 ? a.getFullYear() : ''}`.trim()];
-    return [`${a.getDate()} ${MOIS[a.getMonth()]} – ${b.getDate()}`, MOIS[b.getMonth()]];
+    return [`${a.getDate()}–${b.getDate()}`, `${MOIS[a.getMonth()]}–${MOIS[b.getMonth()]}`];
   }
   function ligne(r) {
     const [j, m] = dates(r.n[0]);
@@ -440,79 +442,76 @@ function init() {
       <span class="depart__prix">${prix}</span>${reste}
       <svg class="depart__fleche" viewBox="0 0 40 16" aria-hidden="true"><path d="M1 8.5c9-.6 25-1 36-.3M30 2.5c2.6 2 5 3.7 7.6 5.7-2.6 1.8-5.2 3.6-7.8 5.6"/></svg></a></li>`;
   }
-  function cercler(label) {
-    $$('svg.cercle', form).forEach((c) => { if (!label.contains(c) && c.closest('.choix') === label.closest('.choix')) c.remove(); });
-    if ($('svg.cercle', label)) return;
-    const ns = 'http://www.w3.org/2000/svg';
-    const svg = document.createElementNS(ns, 'svg');
-    svg.setAttribute('class', 'cercle');
-    svg.setAttribute('viewBox', '0 0 100 40');
-    svg.setAttribute('preserveAspectRatio', 'none');
-    svg.setAttribute('aria-hidden', 'true');
-    const p = document.createElementNS(ns, 'path');
-    p.setAttribute('d', 'M10 22C6 10 40 3 70 5c22 2 30 10 25 20-5 9-34 13-58 11C14 34 4 28 9 17c3-6 12-9 20-11');
-    p.setAttribute('vector-effect', 'non-scaling-stroke');
-    svg.appendChild(p);
-    label.appendChild(svg);
-    const l = p.getTotalLength();
-    p.style.strokeDasharray = l;
-    if (calme) return;
-    gsap.fromTo(p, { strokeDashoffset: l }, { strokeDashoffset: 0, duration: 0.55, ease: 'power2.inOut' });
+  // Les pastilles prennent la largeur de leur mot (field-sizing quand le navigateur le permet).
+  const mesure = document.createElement('canvas').getContext('2d');
+  const auto = typeof CSS !== 'undefined' && CSS.supports('field-sizing', 'content');
+  function ajuster(sel) {
+    if (auto) return;
+    const cs = getComputedStyle(sel);
+    mesure.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+    const txt = sel.options[sel.selectedIndex]?.text || '';
+    sel.style.width = `${Math.ceil(mesure.measureText(txt).width + parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight) + 6)}px`;
+  }
+  const selects = $$('select', form);
+  const optGlisser = $('option[value="glisser"]', form);
+  function optionsSaison(s) {
+    // « glisser » n'existe qu'en hiver
+    const envie = form.elements.envie;
+    if (s === 'ete' && optGlisser.parentNode) {
+      if (envie.value === 'glisser') envie.value = 'sommet';
+      optGlisser.remove();
+    } else if (s === 'hiver' && !optGlisser.parentNode) {
+      envie.insertBefore(optGlisser, envie.options[2] || null);
+    }
   }
   function valeurs() {
-    const f = new FormData(form);
-    return { saison: f.get('saison'), niveau: +f.get('niveau'), envie: f.get('envie') };
+    return { saison: form.elements.saison.value, niveau: +form.elements.niveau.value, envie: form.elements.envie.value };
   }
   async function chercher(animer = true) {
     const v = valeurs();
-    $$('input:checked', form).forEach((i) => cercler(i.closest('label')));
+    selects.forEach(ajuster);
     await charger();
     if (!donnees) { zone.innerHTML = '<p class="trouve__aide">Le programme ne s’est pas chargé. <a href="https://www.roc-ecrins.com/agenda.html">Voir l’agenda complet</a> ou appelle-nous au <a href="tel:+33484131408">04 84 13 14 08</a>.</p>'; return; }
     const cle = v.saison === 'hiver' ? 'h' : 'e';
     const tri = (a, b) => (a.n[0]?.[0] || '9999').localeCompare(b.n[0]?.[0] || '9999') || (a.p || 9e9) - (b.p || 9e9);
     const res = donnees.sejours.filter((r) => r.s.includes(cle) && r.l.includes(v.niveau) && r.e === v.envie).sort(tri);
-    let html = '';
+    let contenu = '';
     if (res.length) {
-      html = `<ol class="departs__liste">${res.slice(0, 3).map(ligne).join('')}</ol>`;
-      if (res.length > 3) html += `<p class="trouve__aide">Et ${res.length - 3} autre${res.length > 4 ? 's' : ''} dans <a href="https://www.roc-ecrins.com/agenda.html">l’agenda complet</a>.</p>`;
+      const n = res.length;
+      contenu = `<p class="trouve__compte"><b>${n} séjour${n > 1 ? 's' : ''}</b> pour toi${n > 3 ? ', voici les 3 prochains' : ''}&nbsp;:</p>`
+        + `<ol class="departs__liste">${res.slice(0, 3).map(ligne).join('')}</ol>`;
+      if (n > 3) contenu += `<p class="trouve__aide">Les ${n - 3} autres sont dans <a href="https://www.roc-ecrins.com/agenda.html">l’agenda complet</a>.</p>`;
     } else {
-      html = `<p class="trouve__aide">Rien pour cette combinaison en ce moment. On te trouve une idée au <a href="tel:+33484131408">04 84 13 14 08</a>, ou regarde <a href="https://www.roc-ecrins.com/agenda.html">tout l’agenda</a>.</p>`;
+      contenu = `<p class="trouve__aide">Rien pour cette combinaison en ce moment. On te trouve une idée au <a href="tel:+33484131408">04 84 13 14 08</a>, ou regarde <a href="https://www.roc-ecrins.com/agenda.html">tout l’agenda</a>.</p>`;
     }
     const remplacer = () => {
-      zone.innerHTML = html;
-      if (!calme && animer) gsap.from($$('.resultat, .trouve__aide', zone), { y: 18, opacity: 0, duration: 0.7, stagger: 0.08, ease: EASE });
+      zone.innerHTML = contenu;
+      if (!calme && animer) gsap.from($$('.trouve__compte, .resultat, .trouve__aide', zone), { y: 18, opacity: 0, duration: 0.7, stagger: 0.07, ease: EASE });
     };
     if (!calme && animer && zone.children.length) gsap.to(zone.children, { opacity: 0, y: -8, duration: 0.18, onComplete: remplacer });
     else remplacer();
   }
   form.addEventListener('change', (e) => {
-    if (e.target.name === 'saison') {
-      changerSaison(e.target.value);
-      return; // la recherche suit le changement de saison
+    const sel = e.target;
+    ajuster(sel);
+    if (!calme) gsap.fromTo(sel.closest('.pastille'), { scale: 0.9 }, { scale: 1, duration: 0.5, ease: REBOND });
+    if (sel.name === 'saison') {
+      changerSaison(sel.value);
+      if (enTransition || calme) return; // la recherche suit le changement de saison
     }
     chercher();
   });
   ecouteursSaison.push((s) => {
-    const r = $(`input[name="saison"][value="${s}"]`, form);
-    if (r) r.checked = true;
-    const glisser = $('input[value="glisser"]', form);
-    if (s === 'ete' && glisser.checked) $('input[value="sommet"]', form).checked = true;
+    form.elements.saison.value = s;
+    optionsSaison(s);
     if (donnees) chercher(true);
   });
-  $(`input[name="saison"][value="${html.dataset.saison}"]`, form).checked = true;
+  form.elements.saison.value = html.dataset.saison;
+  optionsSaison(html.dataset.saison);
+  document.fonts?.ready.then(() => selects.forEach(ajuster));
   ScrollTrigger.create({ trigger: '#trouve-ton-aventure', start: 'top 160%', once: true, onEnter: () => chercher(false) });
 
   /* ------------------------------------------------------------------ 5 · Hors carte */
-  const photoHC = $('.horscarte__photo');
-  if (!calme) {
-    ScrollTrigger.create({
-      trigger: photoHC, start: 'top 62%', once: true,
-      onEnter: () => {
-        $$('.visa .tampon', photoHC).forEach((t, i) => poser(t, 0.5 + i * 0.35));
-        gsap.delayedCall(1.1, () => invite('dromadaire'));
-      },
-    });
-  }
   ScrollTrigger.create({
     trigger: '[data-horscarte]', start: 'top 45%', end: 'bottom 45%',
     onToggle: (self) => alti.classList.toggle('est-hors-carte', self.isActive),
@@ -526,16 +525,24 @@ function init() {
     const titreNuit = $('[data-titre-nuit]');
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: suspendue, pin: true, start: 'top top', end: grand() ? '+=160%' : '+=110%', scrub: 0.8,
+        trigger: suspendue, pin: true, start: 'top top', end: grand() ? '+=70%' : '+=50%', scrub: 0.6,
         onUpdate: (self) => balancer(gsap.utils.clamp(-1, 1, self.getVelocity() / 2400)),
       },
     });
-    tl.fromTo(balancier, { scale: 1.12 }, { scale: 1, ease: 'none', duration: 1 }, 0)
-      .fromTo('[data-crepuscule]', { opacity: 0.35 }, { opacity: 0.92, ease: 'none', duration: 0.8 }, 0.2)
-      .to($$('.ligne > span', titreNuit), { yPercent: 0, y: 0, stagger: 0.08, duration: 0.25, ease: 'power3.out' }, 0.1)
-      .to($$('[data-apparait]', suspendue), { opacity: 1, stagger: 0.06, duration: 0.15 }, 0.3)
-      .add(() => { const n = $('.suspendue__note'); if (!n.dataset.ecrite) { n.dataset.ecrite = 1; ecrire(n); } }, 0.4)
-      .to(nuit, { opacity: 1, ease: 'none', duration: 0.3 }, 0.7);
+    tl.fromTo(balancier, { scale: 1.1 }, { scale: 1, ease: 'none', duration: 1 }, 0)
+      .fromTo('[data-crepuscule]', { opacity: 0.45 }, { opacity: 0.92, ease: 'none', duration: 0.9 }, 0.1)
+      .to(nuit, { opacity: 1, ease: 'none', duration: 0.35 }, 0.65);
+    // Le titre et l'offre sont là dès que la scène s'installe : pas besoin de défiler pour les lire.
+    notesCachees($('.suspendue__note'));
+    ScrollTrigger.create({
+      trigger: suspendue, start: 'top 65%', once: true,
+      onEnter: () => {
+        gsap.timeline()
+          .to($$('.ligne > span', titreNuit), { yPercent: 0, y: 0, stagger: 0.1, duration: 1, ease: EASE })
+          .to($$('[data-apparait]', suspendue), { opacity: 1, stagger: 0.1, duration: 0.6 }, 0.35)
+          .add(() => ecrire($('.suspendue__note')), 0.7);
+      },
+    });
     // On est accroché au vide : la photo se balance au rythme du défilement, avec un ressort.
     const rotV = gsap.quickTo(balancier, 'rotation', { duration: 1.6, ease: 'elastic.out(1, 0.32)' });
     const xV = gsap.quickTo(balancier, 'xPercent', { duration: 1.6, ease: 'elastic.out(1, 0.32)' });
@@ -550,70 +557,71 @@ function init() {
     });
   }
   const entete = $('[data-entete]');
-  ScrollTrigger.create({ trigger: '#tout-compris', start: () => `top ${hauteurEntete()}`, endTrigger: 'html', end: 'bottom bottom', toggleClass: { targets: entete, className: 'est-papier' } });
   ScrollTrigger.create({
-    trigger: '#frederic-et-emilie', start: () => `top ${calme ? 0 : '-10%'}`, endTrigger: '#sommet', end: 'top 30%',
+    // une fois l'ouverture passée, l'en-tête garde son fond papier jusqu'en bas de page
+    trigger: '#tout-compris', start: () => `top ${hauteurEntete()}`,
+    onEnter: () => { entete.classList.add('est-papier'); html.classList.add('alti-on'); },
+    onLeaveBack: () => { entete.classList.remove('est-papier'); html.classList.remove('alti-on'); },
+  });
+  ScrollTrigger.create({
+    trigger: '#frederic-et-emilie', start: calme ? 'top top' : 'top 85%', endTrigger: '#sommet', end: 'top 30%',
     onToggle: (s) => { entete.classList.toggle('est-nuit', s.isActive); html.classList.toggle('est-nuit', s.isActive); },
   });
 
-  /* ------------------------------------------------------------------ 8 · Réveil 4 h : les frontales */
-  const svgF = $('[data-frontales]');
-  const sentier = $('.frontales__sentier', svgF);
-  const L = sentier.getTotalLength();
-  const NB = 24;
+  /* ------------------------------------------------------------------ 8 · Réveil 4 h : le topo */
+  // Une cordée de frontales monte du refuge vers le Dôme ; une redescend chercher le thermos ;
+  // une flèche montre la Barre, 87 m plus haut. Tout se joue en quelques secondes, sans défilement imposé.
   const ns = 'http://www.w3.org/2000/svg';
+  const topo = $('[data-topo]');
+  const topoSvg = $('svg', topo);
+  const voie = $('.topo__voie', topoSvg);
+  const L = voie.getTotalLength();
   const lampes = [];
+  const NB = 16;
   for (let i = 0; i < NB; i++) {
-    const t = 0.03 + (i / (NB - 1)) * 0.94;
-    const pt = sentier.getPointAtLength(t * L);
+    const pt = voie.getPointAtLength((0.06 + (i / (NB - 1)) * 0.9) * L);
     const g = document.createElementNS(ns, 'g');
-    g.innerHTML = '<circle class="frontale__halo" r="13"/><circle class="frontale" r="3.6"/>';
+    g.innerHTML = '<circle class="frontale__halo" r="11"/><circle class="frontale" r="3.4"/>';
     g.setAttribute('transform', `translate(${pt.x.toFixed(1)} ${pt.y.toFixed(1)})`);
-    svgF.appendChild(g);
+    topoSvg.appendChild(g);
     lampes.push(g);
   }
-  // Une frontale fait demi-tour…
   const distraite = document.createElementNS(ns, 'g');
   distraite.setAttribute('class', 'frontale--thermos');
-  distraite.innerHTML = '<circle class="frontale__halo" r="13"/><circle class="frontale" r="3.6"/>';
-  svgF.appendChild(distraite);
+  distraite.innerHTML = '<circle class="frontale__halo" r="11"/><circle class="frontale" r="3.4"/>';
+  topoSvg.appendChild(distraite);
   const posDistraite = (t) => {
-    const pt = sentier.getPointAtLength(t * L);
-    distraite.setAttribute('transform', `translate(${(pt.x + 16).toFixed(1)} ${(pt.y + 4).toFixed(1)})`);
+    const pt = voie.getPointAtLength(t * L);
+    distraite.setAttribute('transform', `translate(${(pt.x + 12).toFixed(1)} ${(pt.y + 6).toFixed(1)})`);
   };
-  const noteThermos = $('[data-note-thermos]');
-  function placerNoteThermos(t) {
-    const pt = sentier.getPointAtLength(t * L);
-    const m = svgF.getScreenCTM();
-    const grilleR = $('.reveil__grille').getBoundingClientRect();
-    if (!m) return;
-    const x = pt.x * m.a + m.e - grilleR.left, y = pt.y * m.d + m.f - grilleR.top;
-    const largeur = noteThermos.offsetWidth || 220;
-    const droite = x > grilleR.width * 0.55;
-    const nx = gsap.utils.clamp(8, grilleR.width - largeur - 8, droite ? x - largeur - 20 : x + 26);
-    noteThermos.style.transform = `translate(${nx}px, ${y + 14}px)`;
-  }
-  const dome = $('[data-dome]');
+  const notesTopo = $$('[data-topo-note]', topo);
+  const fleches = $$('.topo__fleche', topoSvg);
   if (calme) {
-    lampes.forEach((g) => g.setAttribute('opacity', 1));
-    posDistraite(0.3);
-    requestAnimationFrame(() => placerNoteThermos(0.3));
+    posDistraite(0.02);
   } else {
-    lampes.forEach((g) => gsap.set(g, { opacity: 0.08, scale: 0.5, transformOrigin: '50% 50%' }));
-    posDistraite(0.55);
+    posDistraite(0.24);
+    gsap.set(lampes, { opacity: 0, scale: 0.4, transformOrigin: '50% 50%' });
     gsap.set(distraite, { opacity: 0 });
-    const tlF = gsap.timeline({ scrollTrigger: { trigger: '#reveil', start: 'top top', end: 'bottom bottom', scrub: 0.6, onRefresh: () => placerNoteThermos(0.32) } });
-    tlF.to(lampes, { opacity: 1, scale: 1, duration: 0.06, stagger: 0.025, ease: 'power2.out' }, 0)
-      .to(distraite, { opacity: 1, duration: 0.04 }, 0.3);
-    const etat = { t: 0.55 };
-    tlF.to(etat, { t: 0.3, duration: 0.28, ease: 'power1.inOut', onUpdate: () => posDistraite(etat.t) }, 0.38)
-      .to(noteThermos, { opacity: 1, duration: 0.05 }, 0.5)
-      .add(() => { if (!noteThermos.dataset.ecrite) { noteThermos.dataset.ecrite = 1; ecrire(noteThermos); } }, 0.5)
-      .fromTo(dome, { opacity: 0, y: 60, rotation: -10 }, { opacity: 1, y: 0, rotation: 3, duration: 0.14, ease: REBOND }, 0.8)
-      .add(() => { const c = $('figcaption', dome); if (!c.dataset.ecrite) { c.dataset.ecrite = 1; ecrire(c); } }, 0.86);
-    notesCachees(noteThermos);
-    notesCachees($('.suspendue__note'));
-    notesCachees($('figcaption', dome));
+    gsap.set($$('.topo__nom, .topo__alt, .topo__croix, .topo__point', topoSvg), { opacity: 0 });
+    fleches.forEach((f) => { const l = f.getTotalLength(); gsap.set(f, { strokeDasharray: f.classList.contains('topo__fleche--pointe') ? 'none' : '5 6', opacity: 0 }); f.dataset.l = l; });
+    notesTopo.forEach(notesCachees);
+    gsap.set(voie, { strokeDasharray: `0 ${L}` });
+    ScrollTrigger.create({
+      trigger: topo, start: 'top 70%', once: true,
+      onEnter: () => {
+        const etat = { t: 0.24 };
+        gsap.timeline()
+          .to(voie, { strokeDasharray: `${L} 0`, duration: 1.2, ease: 'power2.inOut', onComplete: () => gsap.set(voie, { strokeDasharray: '3 8' }) })
+          .to($$('.topo__point, .topo__croix, .topo__nom, .topo__alt', topoSvg), { opacity: 1, duration: 0.5, stagger: 0.08 }, 0.6)
+          .to(lampes, { opacity: 1, scale: 1, duration: 0.35, stagger: 0.09, ease: REBOND }, 0.5)
+          .to(distraite, { opacity: 1, duration: 0.2 }, 1.1)
+          .to(etat, { t: 0.02, duration: 1.4, ease: 'power1.inOut', onUpdate: () => posDistraite(etat.t) }, 1.5)
+          .add(() => ecrire(notesTopo[1]), 2.1)
+          .to(fleches, { opacity: 1, duration: 0.3 }, 2.2)
+          .fromTo(fleches[0], { strokeDashoffset: +fleches[0].dataset.l }, { strokeDashoffset: 0, duration: 0.7, ease: 'power2.out' }, 2.2)
+          .add(() => ecrire(notesTopo[0]), 2.6);
+      },
+    });
   }
 
   /* ------------------------------------------------------------------ 9 · Sommet : l'aube */
@@ -736,7 +744,7 @@ function init() {
       });
     });
     // L'altimètre et sa plaque arrivent avec un petit balancement.
-    gsap.from(alti, { y: 30, opacity: 0, duration: 1, delay: 1.4, ease: EASE, clearProps: 'opacity,transform' });
+    gsap.from(alti, { y: -12, opacity: 0, duration: 0.9, delay: 1.2, ease: EASE, clearProps: 'opacity,transform' });
   } else {
     majPlaque(4102);
   }

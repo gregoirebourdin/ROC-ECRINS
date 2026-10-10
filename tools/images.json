@@ -1,24 +1,249 @@
 {
-  "_doc": "Sélection finale. crop = [x0, y0, x1, y1] en fractions de la photo source. widths = largeurs exportées. src = fichier téléchargé depuis roc-ecrins.com (entrée la plus large du tableau img).",
-  "images": [
-    {"id": "sac", "src": "nouveau-produit-3096-ascension-mont-blanc-avec-guide.jpg", "page": "sortie/nouveau-produit-3096.html", "crop": [0.305, 0, 0.774, 1], "widths": [640, 960, 1280], "alt": "Alpiniste de dos, sac orange, piolet levé sur l'arête sommitale du Mont Blanc, rayons de soleil dans le ciel bleu"},
-    {"id": "arete", "src": "nouveau-produit-8880-courses-d-ar-te-guide-des-ecrins.jpg", "page": "sortie/nouveau-produit-8880.html", "crop": [0.27, 0, 0.71, 1], "widths": [640, 960, 1280], "alt": "Grimpeur debout au sommet d'une aiguille rocheuse, corde orange tendue, mer de nuages derrière, course d'arête dans les Écrins en été"},
-    {"id": "surplomb", "src": "grande-voie-agenda-39-escalade2-jpg.jpg", "page": "stages-d-escalade-grande-voie-agenda-39.html", "crop": [0.52, 0, 0.96, 1], "widths": [640, 960, 1280], "alt": "Grimpeur sous un surplomb de calcaire doré, le vide et le ciel derrière lui, escalade en grande voie en été"},
-    {"id": "passerelle", "src": "journee-via-ferrata-en-e-dsc1965-jpg.jpg", "page": "sortie/journee-via-ferrata-en-ecrins.html", "crop": [0.36, 0, 0.80, 1], "widths": [640, 960, 1280], "alt": "Passerelle de via ferrata suspendue au-dessus d'un torrent, vue d'en haut, dans les Écrins en été"},
-    {"id": "fournel", "src": "canyon-du-fournel-314-gopr1466-jpg.jpg", "page": "sortie/canyon-du-fournel-314.html", "crop": [0.24, 0, 0.68, 1], "widths": [640, 960, 1280], "alt": "Cascade et vasque du canyon du Fournel à L'Argentière-la-Bessée, un canyoneur dans l'eau, en été"},
-    {"id": "ombre", "src": "hors-piste-free-ride-age-ski2-3-jpg.jpg", "page": "stages-de-ski-hors-piste-free-ride-agenda-40.html", "crop": [0.24, 0, 0.68, 1], "widths": [640, 960, 1280], "alt": "Skieur hors-piste en virage dans la poudreuse, son ombre immense sur la neige, en hiver"},
-    {"id": "aube-ski", "src": "stages-de-ski-agenda-25-ski-rando-refuge-de-l-aigle.jpg", "page": "stages-de-ski-agenda-25.html", "crop": [0.50, 0, 0.94, 1], "widths": [640, 960, 1280], "alt": "Skieuse de randonnée qui monte au lever du soleil au-dessus d'une mer de nuages, près du refuge de l'Aigle, en hiver"},
-    {"id": "cascade", "src": "demi-journee-decouverte-sortie-encadr-e-demi-journ-e-cascade-glace.jpg", "page": "sortie/demi-journee-decouverte-cascade-de-glace.html", "crop": [0.28, 0, 0.72, 1], "widths": [640, 960, 1280], "alt": "Grimpeur sur une cascade de glace, piolets plantés dans la glace bleue, en hiver"},
-    {"id": "traineau", "src": "chien-de-traineau-a-neva-pluriactivit-s-la-montagne.jpg", "page": "sortie/raquettes-ski-de-fond-chien-de-traineau-a-nevache.html", "crop": [0.28, 0, 0.72, 1], "widths": [640, 960], "alt": "Attelage de chiens de traîneau vu depuis le traîneau, forêt enneigée à Névache, en hiver"},
-    {"id": "tadrart", "src": "nouveau-produit-11785-2008-02-02-alge-rietadrart0143-jpg.jpg", "page": "sortie/nouveau-produit-11785.html", "crop": [0, 0, 1, 1], "widths": [1280, 1920, 2560], "alt": "Aiguilles de grès et dunes orange de la Tadrart, dans le Sahara algérien, deux marcheurs minuscules au pied"},
-    {"id": "portaledge", "src": "nuit-insolite-en-portale-nuis-insolite-portaledge-falaise.jpg", "page": "sortie/nuit-insolite-en-portaledge.html", "crop": [0, 0, 1, 1], "widths": [1280, 1920, 2560], "alt": "Nuit insolite en portaledge accroché à une falaise : un duvet vert sur la plateforme suspendue, la vallée tout en bas dans la lumière du soir"},
-    {"id": "marmite", "src": "bivouac-sur-mesure-img-20190605-194638-4-jpg.jpg", "page": "sortie/sejour-insolite-en-bivouac-sur-mesure.html", "crop": [0.24, 0, 0.71, 1], "widths": [640, 960, 1280], "alt": "Marmite sur le feu d'un bivouac, fumée dans les mélèzes, falaise au soleil couchant"},
-    {"id": "meije", "src": "meije-orientale-et-doigt-vue.jpg", "page": "sortie/meije-orientale-et-doigt-de-dieu-58.html", "crop": [0, 0, 1, 1], "widths": [1280, 1920, 2500], "alt": "Alpiniste en silhouette, piolet levé, sur une pente de neige face au lever du soleil, ascension de la Meije orientale"},
-    {"id": "dome", "src": "pente-raide-a-la-journee-img-4093-jpg.jpg", "page": "sortie/ski-alpinisme-pente-raide-a-la-journee-sejour-15522.html", "crop": [0.05, 0.22, 0.95, 1], "widths": [480, 960], "alt": "Panneau de bois sculpté « Dôme des Écrins, alt. 4 015 » à côté du panneau « Le Serre Chevalier »"}
-  ],
-  "cutouts": [
-    {"id": "husky", "src": "hivernales-dans-les-ecri-chien-de-traineau.png", "page": "sortie/sejour-multi-activites-hivernales-dans-les-ecrins-5-jours-sejour-12990.html", "trim_left": 0.11, "widths": [480, 960], "alt": "Un husky qui se roule dans la neige, pattes en l'air"},
-    {"id": "bouquetin", "src": "grandes-voies-pays-des-e-p1030640-3-jpg.png", "page": "sortie/journee-d-escalade-grandes-voies-pays-des-ecrins.html", "trim_bottom": 0.55, "widths": [480, 960], "alt": "Un bouquetin passe la tête et les cornes au-dessus de la photo"},
-    {"id": "dromadaire", "src": "essendilene-img-5596-2-jpg.png", "page": "sortie/rendez-vous-a-essendilene-algerie-randonnee-chameliere-dans-le-pre-tassili-sejour-11727.html", "widths": [640, 1280], "alt": "Un dromadaire en gros plan, l'air très sérieux"}
-  ]
+ "_doc": "Sélection finale. crop = [x0, y0, x1, y1] en fractions de la photo source. widths = largeurs exportées. src = fichier téléchargé depuis roc-ecrins.com (entrée la plus large du tableau img).",
+ "images": [
+  {
+   "id": "sac",
+   "src": "nouveau-produit-3096-ascension-mont-blanc-avec-guide.jpg",
+   "page": "sortie/nouveau-produit-3096.html",
+   "crop": [
+    0.305,
+    0,
+    0.774,
+    1
+   ],
+   "widths": [
+    640,
+    960,
+    1280
+   ],
+   "alt": "Alpiniste de dos, sac orange, piolet levé sur l'arête sommitale du Mont Blanc, rayons de soleil dans le ciel bleu"
+  },
+  {
+   "id": "arete",
+   "src": "nouveau-produit-8880-courses-d-ar-te-guide-des-ecrins.jpg",
+   "page": "sortie/nouveau-produit-8880.html",
+   "crop": [
+    0.27,
+    0,
+    0.71,
+    1
+   ],
+   "widths": [
+    640,
+    960,
+    1280
+   ],
+   "alt": "Grimpeur debout au sommet d'une aiguille rocheuse, corde orange tendue, mer de nuages derrière, course d'arête dans les Écrins en été"
+  },
+  {
+   "id": "surplomb",
+   "src": "grande-voie-agenda-39-escalade2-jpg.jpg",
+   "page": "stages-d-escalade-grande-voie-agenda-39.html",
+   "crop": [
+    0.52,
+    0,
+    0.96,
+    1
+   ],
+   "widths": [
+    640,
+    960,
+    1280
+   ],
+   "alt": "Grimpeur sous un surplomb de calcaire doré, le vide et le ciel derrière lui, escalade en grande voie en été"
+  },
+  {
+   "id": "passerelle",
+   "src": "journee-via-ferrata-en-e-dsc1965-jpg.jpg",
+   "page": "sortie/journee-via-ferrata-en-ecrins.html",
+   "crop": [
+    0.36,
+    0,
+    0.8,
+    1
+   ],
+   "widths": [
+    640,
+    960,
+    1280
+   ],
+   "alt": "Passerelle de via ferrata suspendue au-dessus d'un torrent, vue d'en haut, dans les Écrins en été"
+  },
+  {
+   "id": "fournel",
+   "src": "canyon-du-fournel-314-gopr1466-jpg.jpg",
+   "page": "sortie/canyon-du-fournel-314.html",
+   "crop": [
+    0.24,
+    0,
+    0.68,
+    1
+   ],
+   "widths": [
+    640,
+    960,
+    1280
+   ],
+   "alt": "Cascade et vasque du canyon du Fournel à L'Argentière-la-Bessée, un canyoneur dans l'eau, en été"
+  },
+  {
+   "id": "ombre",
+   "src": "hors-piste-free-ride-age-ski2-3-jpg.jpg",
+   "page": "stages-de-ski-hors-piste-free-ride-agenda-40.html",
+   "crop": [
+    0.24,
+    0,
+    0.68,
+    1
+   ],
+   "widths": [
+    640,
+    960,
+    1280
+   ],
+   "alt": "Skieur hors-piste en virage dans la poudreuse, son ombre immense sur la neige, en hiver"
+  },
+  {
+   "id": "aube-ski",
+   "src": "stages-de-ski-agenda-25-ski-rando-refuge-de-l-aigle.jpg",
+   "page": "stages-de-ski-agenda-25.html",
+   "crop": [
+    0.5,
+    0,
+    0.94,
+    1
+   ],
+   "widths": [
+    640,
+    960,
+    1280
+   ],
+   "alt": "Skieuse de randonnée qui monte au lever du soleil au-dessus d'une mer de nuages, près du refuge de l'Aigle, en hiver"
+  },
+  {
+   "id": "cascade",
+   "src": "demi-journee-decouverte-sortie-encadr-e-demi-journ-e-cascade-glace.jpg",
+   "page": "sortie/demi-journee-decouverte-cascade-de-glace.html",
+   "crop": [
+    0.28,
+    0,
+    0.72,
+    1
+   ],
+   "widths": [
+    640,
+    960,
+    1280
+   ],
+   "alt": "Grimpeur sur une cascade de glace, piolets plantés dans la glace bleue, en hiver"
+  },
+  {
+   "id": "traineau",
+   "src": "chien-de-traineau-a-neva-pluriactivit-s-la-montagne.jpg",
+   "page": "sortie/raquettes-ski-de-fond-chien-de-traineau-a-nevache.html",
+   "crop": [
+    0.28,
+    0,
+    0.72,
+    1
+   ],
+   "widths": [
+    640,
+    960
+   ],
+   "alt": "Attelage de chiens de traîneau vu depuis le traîneau, forêt enneigée à Névache, en hiver"
+  },
+  {
+   "id": "tadrart",
+   "src": "nouveau-produit-11785-2008-02-02-alge-rietadrart0143-jpg.jpg",
+   "page": "sortie/nouveau-produit-11785.html",
+   "crop": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "widths": [
+    1280,
+    1920,
+    2560
+   ],
+   "alt": "Aiguilles de grès et dunes orange de la Tadrart, dans le Sahara algérien, deux marcheurs minuscules au pied"
+  },
+  {
+   "id": "portaledge",
+   "src": "nuit-insolite-en-portale-nuis-insolite-portaledge-falaise.jpg",
+   "page": "sortie/nuit-insolite-en-portaledge.html",
+   "crop": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "widths": [
+    1280,
+    1920,
+    2560
+   ],
+   "alt": "Nuit insolite en portaledge accroché à une falaise : un duvet vert sur la plateforme suspendue, la vallée tout en bas dans la lumière du soir"
+  },
+  {
+   "id": "marmite",
+   "src": "bivouac-sur-mesure-img-20190605-194638-4-jpg.jpg",
+   "page": "sortie/sejour-insolite-en-bivouac-sur-mesure.html",
+   "crop": [
+    0.24,
+    0,
+    0.71,
+    1
+   ],
+   "widths": [
+    640,
+    960,
+    1280
+   ],
+   "alt": "Marmite sur le feu d'un bivouac, fumée dans les mélèzes, falaise au soleil couchant"
+  },
+  {
+   "id": "meije",
+   "src": "meije-orientale-et-doigt-vue.jpg",
+   "page": "sortie/meije-orientale-et-doigt-de-dieu-58.html",
+   "crop": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "widths": [
+    1280,
+    1920,
+    2500
+   ],
+   "alt": "Alpiniste en silhouette, piolet levé, sur une pente de neige face au lever du soleil, ascension de la Meije orientale"
+  }
+ ],
+ "cutouts": [
+  {
+   "id": "husky",
+   "src": "hivernales-dans-les-ecri-chien-de-traineau.png",
+   "page": "sortie/sejour-multi-activites-hivernales-dans-les-ecrins-5-jours-sejour-12990.html",
+   "trim_left": 0.11,
+   "widths": [
+    480,
+    960
+   ],
+   "alt": "Un husky qui se roule dans la neige, pattes en l'air"
+  },
+  {
+   "id": "bouquetin",
+   "src": "grandes-voies-pays-des-e-p1030640-3-jpg.png",
+   "page": "sortie/journee-d-escalade-grandes-voies-pays-des-ecrins.html",
+   "trim_bottom": 0.55,
+   "widths": [
+    480,
+    960
+   ],
+   "alt": "Un bouquetin passe la tête et les cornes au-dessus de la photo"
+  }
+ ]
 }
