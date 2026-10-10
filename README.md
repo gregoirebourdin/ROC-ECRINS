@@ -12,7 +12,7 @@ python3 -m http.server 8765   # puis http://127.0.0.1:8765/
 
 Aucune dépendance à installer : GSAP 3.15, ScrollTrigger et Lenis 1.3 sont servis depuis `assets/js/vendor/`.
 
-**Police de titrage.** Le fichier `assets/fonts/adventure.woff2` n'est pas versionné : le dépôt est public, et la licence web d'Adventure (SiapGraph) doit d'abord être confirmée. Pour l'ajouter, générer le sous-ensemble depuis le fichier OTF avec `tools/subset_fonts.sh` (voir `assets/fonts/LICENCES.md`).
+**Police de titrage.** `assets/fonts/adventure.woff2` (Adventure, SiapGraph) est une police commerciale fournie par le client. Sa licence web doit être en règle (voir `assets/fonts/LICENCES.md`).
 
 ## Structure
 

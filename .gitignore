@@ -3,5 +3,3 @@ __pycache__/
 node_modules/
 .DS_Store
 assets/fonts/.instrument-wght.ttf
-# Police de titrage Adventure (SiapGraph) : licence web à confirmer, non publiée dans ce dépôt public.
-assets/fonts/adventure.woff2
