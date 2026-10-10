@@ -1,0 +1,659 @@
+{
+ "sac": {
+  "w": 1441,
+  "h": 1800,
+  "ratio": 0.8006,
+  "files": [
+   [
+    "sac-640.avif",
+    18
+   ],
+   [
+    "sac-640.webp",
+    21
+   ],
+   [
+    "sac-960.avif",
+    34
+   ],
+   [
+    "sac-960.webp",
+    38
+   ],
+   [
+    "sac-1280.avif",
+    53
+   ],
+   [
+    "sac-1280.webp",
+    55
+   ]
+  ]
+ },
+ "arete": {
+  "w": 1352,
+  "h": 1800,
+  "ratio": 0.7511,
+  "files": [
+   [
+    "arete-640.avif",
+    33
+   ],
+   [
+    "arete-640.webp",
+    50
+   ],
+   [
+    "arete-960.avif",
+    64
+   ],
+   [
+    "arete-960.webp",
+    100
+   ],
+   [
+    "arete-1280.avif",
+    105
+   ],
+   [
+    "arete-1280.webp",
+    158
+   ]
+  ]
+ },
+ "surplomb": {
+  "w": 1352,
+  "h": 1800,
+  "ratio": 0.7511,
+  "files": [
+   [
+    "surplomb-640.avif",
+    47
+   ],
+   [
+    "surplomb-640.webp",
+    68
+   ],
+   [
+    "surplomb-960.avif",
+    93
+   ],
+   [
+    "surplomb-960.webp",
+    131
+   ],
+   [
+    "surplomb-1280.avif",
+    148
+   ],
+   [
+    "surplomb-1280.webp",
+    198
+   ]
+  ]
+ },
+ "passerelle": {
+  "w": 1352,
+  "h": 1800,
+  "ratio": 0.7511,
+  "files": [
+   [
+    "passerelle-640.avif",
+    44
+   ],
+   [
+    "passerelle-640.webp",
+    60
+   ],
+   [
+    "passerelle-960.avif",
+    84
+   ],
+   [
+    "passerelle-960.webp",
+    112
+   ],
+   [
+    "passerelle-1280.avif",
+    130
+   ],
+   [
+    "passerelle-1280.webp",
+    166
+   ]
+  ]
+ },
+ "fournel": {
+  "w": 1352,
+  "h": 1800,
+  "ratio": 0.7511,
+  "files": [
+   [
+    "fournel-640.avif",
+    60
+   ],
+   [
+    "fournel-640.webp",
+    89
+   ],
+   [
+    "fournel-960.avif",
+    120
+   ],
+   [
+    "fournel-960.webp",
+    176
+   ],
+   [
+    "fournel-1280.avif",
+    186
+   ],
+   [
+    "fournel-1280.webp",
+    263
+   ]
+  ]
+ },
+ "ombre": {
+  "w": 1299,
+  "h": 1729,
+  "ratio": 0.7513,
+  "files": [
+   [
+    "ombre-640.avif",
+    21
+   ],
+   [
+    "ombre-640.webp",
+    26
+   ],
+   [
+    "ombre-960.avif",
+    39
+   ],
+   [
+    "ombre-960.webp",
+    47
+   ],
+   [
+    "ombre-1280.avif",
+    63
+   ],
+   [
+    "ombre-1280.webp",
+    74
+   ]
+  ]
+ },
+ "aube-ski": {
+  "w": 901,
+  "h": 1200,
+  "ratio": 0.7508,
+  "files": [
+   [
+    "aube-ski-640.avif",
+    23
+   ],
+   [
+    "aube-ski-640.webp",
+    30
+   ],
+   [
+    "aube-ski-901.avif",
+    38
+   ],
+   [
+    "aube-ski-901.webp",
+    48
+   ],
+   [
+    "aube-ski-901.avif",
+    38
+   ],
+   [
+    "aube-ski-901.webp",
+    48
+   ]
+  ]
+ },
+ "cascade": {
+  "w": 1352,
+  "h": 1800,
+  "ratio": 0.7511,
+  "files": [
+   [
+    "cascade-640.avif",
+    39
+   ],
+   [
+    "cascade-640.webp",
+    49
+   ],
+   [
+    "cascade-960.avif",
+    76
+   ],
+   [
+    "cascade-960.webp",
+    90
+   ],
+   [
+    "cascade-1280.avif",
+    126
+   ],
+   [
+    "cascade-1280.webp",
+    143
+   ]
+  ]
+ },
+ "traineau": {
+  "w": 844,
+  "h": 1125,
+  "ratio": 0.7502,
+  "files": [
+   [
+    "traineau-640.avif",
+    40
+   ],
+   [
+    "traineau-640.webp",
+    59
+   ],
+   [
+    "traineau-844.avif",
+    68
+   ],
+   [
+    "traineau-844.webp",
+    97
+   ]
+  ]
+ },
+ "tadrart": {
+  "w": 2592,
+  "h": 1519,
+  "ratio": 1.7064,
+  "files": [
+   [
+    "tadrart-1280.avif",
+    45
+   ],
+   [
+    "tadrart-1280.webp",
+    56
+   ],
+   [
+    "tadrart-1920.avif",
+    92
+   ],
+   [
+    "tadrart-1920.webp",
+    105
+   ],
+   [
+    "tadrart-2560.avif",
+    149
+   ],
+   [
+    "tadrart-2560.webp",
+    160
+   ]
+  ]
+ },
+ "portaledge": {
+  "w": 3072,
+  "h": 1800,
+  "ratio": 1.7067,
+  "files": [
+   [
+    "portaledge-1280.avif",
+    73
+   ],
+   [
+    "portaledge-1280.webp",
+    105
+   ],
+   [
+    "portaledge-1920.avif",
+    151
+   ],
+   [
+    "portaledge-1920.webp",
+    214
+   ],
+   [
+    "portaledge-2560.avif",
+    243
+   ],
+   [
+    "portaledge-2560.webp",
+    342
+   ]
+  ]
+ },
+ "marmite": {
+  "w": 1444,
+  "h": 1800,
+  "ratio": 0.8022,
+  "files": [
+   [
+    "marmite-640.avif",
+    26
+   ],
+   [
+    "marmite-640.webp",
+    31
+   ],
+   [
+    "marmite-960.avif",
+    48
+   ],
+   [
+    "marmite-960.webp",
+    56
+   ],
+   [
+    "marmite-1280.avif",
+    72
+   ],
+   [
+    "marmite-1280.webp",
+    81
+   ]
+  ]
+ },
+ "meije": {
+  "w": 2500,
+  "h": 1464,
+  "ratio": 1.7077,
+  "files": [
+   [
+    "meije-1280.avif",
+    6
+   ],
+   [
+    "meije-1280.webp",
+    8
+   ],
+   [
+    "meije-1920.avif",
+    12
+   ],
+   [
+    "meije-1920.webp",
+    16
+   ],
+   [
+    "meije-2500.avif",
+    19
+   ],
+   [
+    "meije-2500.webp",
+    25
+   ]
+  ]
+ },
+ "dome": {
+  "w": 2764,
+  "h": 1404,
+  "ratio": 1.9687,
+  "files": [
+   [
+    "dome-480.avif",
+    12
+   ],
+   [
+    "dome-480.webp",
+    24
+   ],
+   [
+    "dome-960.avif",
+    46
+   ],
+   [
+    "dome-960.webp",
+    82
+   ]
+  ]
+ },
+ "husky": {
+  "w": 1698,
+  "h": 632,
+  "ratio": 2.6867,
+  "files": [
+   [
+    "husky-480.avif",
+    14
+   ],
+   [
+    "husky-480.webp",
+    19
+   ],
+   [
+    "husky-960.avif",
+    48
+   ],
+   [
+    "husky-960.webp",
+    65
+   ]
+  ]
+ },
+ "bouquetin": {
+  "w": 1177,
+  "h": 941,
+  "ratio": 1.2508,
+  "files": [
+   [
+    "bouquetin-480.avif",
+    20
+   ],
+   [
+    "bouquetin-480.webp",
+    26
+   ],
+   [
+    "bouquetin-960.avif",
+    54
+   ],
+   [
+    "bouquetin-960.webp",
+    70
+   ]
+  ]
+ },
+ "dromadaire": {
+  "w": 2640,
+  "h": 1772,
+  "ratio": 1.4898,
+  "files": [
+   [
+    "dromadaire-640.avif",
+    31
+   ],
+   [
+    "dromadaire-640.webp",
+    41
+   ],
+   [
+    "dromadaire-1280.avif",
+    107
+   ],
+   [
+    "dromadaire-1280.webp",
+    144
+   ]
+  ]
+ },
+ "hero-sky": {
+  "w": 3072,
+  "h": 1800,
+  "ratio": 1.7067,
+  "files": [
+   [
+    "hero-sky-1280.avif",
+    20
+   ],
+   [
+    "hero-sky-1280.webp",
+    42
+   ],
+   [
+    "hero-sky-1920.avif",
+    37
+   ],
+   [
+    "hero-sky-1920.webp",
+    79
+   ],
+   [
+    "hero-sky-2560.avif",
+    58
+   ],
+   [
+    "hero-sky-2560.webp",
+    119
+   ]
+  ]
+ },
+ "hero-peaks": {
+  "w": 3072,
+  "h": 466,
+  "ratio": 6.5923,
+  "files": [
+   [
+    "hero-peaks-1280.avif",
+    10
+   ],
+   [
+    "hero-peaks-1280.webp",
+    15
+   ],
+   [
+    "hero-peaks-1920.avif",
+    16
+   ],
+   [
+    "hero-peaks-1920.webp",
+    25
+   ],
+   [
+    "hero-peaks-2560.avif",
+    23
+   ],
+   [
+    "hero-peaks-2560.webp",
+    39
+   ]
+  ]
+ },
+ "hero-clouds": {
+  "w": 3072,
+  "h": 1282,
+  "ratio": 2.3963,
+  "files": [
+   [
+    "hero-clouds-1280.avif",
+    13
+   ],
+   [
+    "hero-clouds-1280.webp",
+    18
+   ],
+   [
+    "hero-clouds-1920.avif",
+    23
+   ],
+   [
+    "hero-clouds-1920.webp",
+    32
+   ],
+   [
+    "hero-clouds-2560.avif",
+    35
+   ],
+   [
+    "hero-clouds-2560.webp",
+    46
+   ]
+  ]
+ },
+ "hero-fg": {
+  "w": 3072,
+  "h": 887,
+  "ratio": 3.4634,
+  "files": [
+   [
+    "hero-fg-1280.avif",
+    38
+   ],
+   [
+    "hero-fg-1280.webp",
+    53
+   ],
+   [
+    "hero-fg-1920.avif",
+    69
+   ],
+   [
+    "hero-fg-1920.webp",
+    102
+   ],
+   [
+    "hero-fg-2560.avif",
+    105
+   ],
+   [
+    "hero-fg-2560.webp",
+    163
+   ]
+  ]
+ },
+ "hero-m-bg": {
+  "w": 1536,
+  "h": 1800,
+  "ratio": 0.8533,
+  "files": [
+   [
+    "hero-m-bg-720.avif",
+    7
+   ],
+   [
+    "hero-m-bg-720.webp",
+    12
+   ],
+   [
+    "hero-m-bg-1080.avif",
+    13
+   ],
+   [
+    "hero-m-bg-1080.webp",
+    21
+   ]
+  ]
+ },
+ "hero-m-fg": {
+  "w": 1536,
+  "h": 887,
+  "ratio": 1.7317,
+  "files": [
+   [
+    "hero-m-fg-720.avif",
+    20
+   ],
+   [
+    "hero-m-fg-720.webp",
+    28
+   ],
+   [
+    "hero-m-fg-1080.avif",
+    37
+   ],
+   [
+    "hero-m-fg-1080.webp",
+    54
+   ]
+  ]
+ }
+}
