@@ -92,7 +92,7 @@ function init() {
 
   if (!calme) {
     $$('[data-note]').forEach((note) => {
-      if (note.closest('[data-ouverture]')) return; // écrite dans l'intro
+      if (note.closest('[data-ouverture]') || note.closest('[data-suspendue]')) return; // écrites dans leur propre scène
       notesCachees(note);
       ScrollTrigger.create({ trigger: note, start: 'top 82%', once: true, onEnter: () => ecrire(note, 0.15) });
     });
@@ -534,6 +534,7 @@ function init() {
       .fromTo('[data-crepuscule]', { opacity: 0.35 }, { opacity: 0.92, ease: 'none', duration: 0.8 }, 0.2)
       .to($$('.ligne > span', titreNuit), { yPercent: 0, y: 0, stagger: 0.08, duration: 0.25, ease: 'power3.out' }, 0.1)
       .to($$('[data-apparait]', suspendue), { opacity: 1, stagger: 0.06, duration: 0.15 }, 0.3)
+      .add(() => { const n = $('.suspendue__note'); if (!n.dataset.ecrite) { n.dataset.ecrite = 1; ecrire(n); } }, 0.4)
       .to(nuit, { opacity: 1, ease: 'none', duration: 0.3 }, 0.7);
     // On est accroché au vide : la photo se balance au rythme du défilement, avec un ressort.
     const rotV = gsap.quickTo(balancier, 'rotation', { duration: 1.6, ease: 'elastic.out(1, 0.32)' });
@@ -611,6 +612,7 @@ function init() {
       .fromTo(dome, { opacity: 0, y: 60, rotation: -10 }, { opacity: 1, y: 0, rotation: 3, duration: 0.14, ease: REBOND }, 0.8)
       .add(() => { const c = $('figcaption', dome); if (!c.dataset.ecrite) { c.dataset.ecrite = 1; ecrire(c); } }, 0.86);
     notesCachees(noteThermos);
+    notesCachees($('.suspendue__note'));
     notesCachees($('figcaption', dome));
   }
 
